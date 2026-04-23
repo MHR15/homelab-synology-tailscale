@@ -1,37 +1,31 @@
-# Homelab: NAS Seguro con Synology y Tailscale
+# Homelab: NAS con Synology DSM y Tailscale
 
-> Infraestructura de red doméstica con acceso remoto seguro sin abrir puertos en el router, implementada sobre hardware reciclado.
+> Servidor NAS casero montado sobre hardware reciclado, con acceso remoto seguro mediante Tailscale VPN y gestión centralizada de archivos y copias de seguridad.
 
 ---
 
 ## Descripción
 
-Este proyecto documenta la configuración de un servidor NAS casero montado sobre un PC antiguo reutilizado, ejecutando **Synology DSM** y conectado de forma segura a internet mediante **Tailscale** (basado en el protocolo WireGuard VPN).
+Este proyecto documenta la configuración de un servidor NAS casero ejecutando **Synology DSM** sobre un PC reciclado mediante **XPEnology / ARC Loader**.
 
-El objetivo principal es poder acceder a los archivos, servicios y panel de administración desde cualquier lugar de forma **privada y segura**, sin necesidad de abrir puertos en el router ni exponer la IP pública.
-
----
-
-## Objetivos del Proyecto
-
-- Reutilizar hardware antiguo como servidor NAS doméstico
-- Configurar acceso remoto seguro mediante Tailscale VPN (sin port forwarding)
-- Aplicar bastionado de seguridad (hardening) en Synology DSM
-- Gestionar almacenamiento, usuarios y permisos en red local
-- Afianzar conocimientos prácticos de administración de sistemas y redes
+El objetivo es disponer de un almacenamiento centralizado y privado accesible desde cualquier lugar, gestionando archivos personales y copias de seguridad de fotografías sin depender de servicios en la nube de terceros.
 
 ---
 
-## Tecnologías y Herramientas
+## Hardware
 
-| Herramienta | Uso |
+- PC reciclado (modelo por determinar)
+- 1 disco SSD de 128 GB (ampliable)
+
+---
+
+## Software y Sistema
+
+| Componente | Detalle |
 |---|---|
-| Synology DSM 7.x | Sistema operativo del NAS |
-| Tailscale (WireGuard) | VPN para acceso remoto seguro |
-| Linux / XPEnology | Base del servidor en el PC reciclado |
-| Firewall DSM | Reglas de acceso por IP y subred |
-| Autenticación de Doble Factor (2FA) | Seguridad de acceso al panel |
-| Synology Active Backup | Copias de seguridad automáticas |
+| Sistema operativo | Synology DSM (instalado mediante XPEnology / ARC Loader) |
+| Acceso remoto | Tailscale, instalado desde el Centro de Paquetes de Synology |
+| Acceso en red local | IP local del servidor con puerto 5000 / 5001 |
 
 ---
 
@@ -42,76 +36,50 @@ El objetivo principal es poder acceder a los archivos, servicios y panel de admi
     |
 [Router doméstico]
     |
-    +-- [NAS Synology / PC Reciclado]  <- Servidor principal
-    |        +-- Tailscale (IP: 100.x.x.x)
-    |
-    +-- [Portatil]  <- Cliente Tailscale
-    +-- [Movil]     <- Cliente Tailscale
+    +-- [NAS / PC reciclado con Synology DSM]
+             +-- Tailscale (acceso remoto seguro)
+             +-- Red local (192.168.x.x:5000)
 
-Acceso remoto: Portatil/Movil --(Tailscale VPN)--> NAS
+Acceso remoto: Portatil / Movil --(Tailscale VPN)--> NAS
+Acceso local:  Portatil / PC    --(Red local)------> NAS
 ```
-
----
-
-## Seguridad Implementada (Hardening)
-
-- Cuenta `admin` por defecto deshabilitada
-- Puerto de administración cambiado (no se usa 5000/5001)
-- Autenticación de doble factor (2FA) activada para todos los usuarios
-- Reglas de Firewall: acceso al panel restringido a la subred de Tailscale (`100.64.0.0/10`) y red local
-- Auto Block activado: bloqueo automático tras intentos de login fallidos
-- Actualizaciones automáticas de seguridad de DSM activadas
 
 ---
 
 ## Servicios Configurados
 
-- **File Station** — Gestión de archivos desde cualquier dispositivo
-- **Active Backup for Business** — Copias de seguridad automáticas del portátil
-- **Jellyfin** — Servidor multimedia privado accesible vía Tailscale
-- **Hyper Backup** — Backup cifrado a la nube (política de copias 3-2-1)
+### Synology Drive
+Sincronización bidireccional de archivos entre el NAS y el portátil y el PC de sobremesa. Permite tener los archivos disponibles en todos los dispositivos de forma automática, funcionando como una nube privada.
+
+### Synology Photos
+Almacenamiento centralizado y copia de seguridad automática de las fotografías de 3 dispositivos móviles. Las fotos se suben directamente al NAS sin pasar por servicios externos.
 
 ---
 
-## Proceso de Configuración
+## Acceso Remoto con Tailscale
 
-### 1. Preparación del Hardware
-- PC antiguo con al menos 4 GB de RAM y disco duro de 1 TB
-- Instalación de XPEnology/ARC Loader para ejecutar Synology DSM en hardware no oficial
+Tailscale está instalado directamente en el NAS desde el Centro de Paquetes de Synology DSM. Permite acceder al servidor desde cualquier red externa de forma segura, sin necesidad de abrir puertos en el router ni exponer la IP pública.
 
-### 2. Instalación de Tailscale en Synology
-- Instalación desde el Centro de Paquetes de DSM
-- Autenticación con cuenta de Tailscale
-- Configuración como nodo de la red privada virtual
-
-### 3. Bastionado del Sistema
-- Creación de usuario administrador personalizado
-- Desactivación del usuario `admin` por defecto
-- Configuración del Firewall con reglas restrictivas por IP
-- Activación de 2FA para todos los usuarios con acceso
-
-### 4. Configuración de Servicios
-- Creación de carpetas compartidas con permisos diferenciados por usuario
-- Configuración de tareas programadas para backups nocturnos automatizados
+Desde fuera de la red local, el acceso se realiza a través de la IP privada asignada por Tailscale al NAS.
 
 ---
 
-## Resultados
+## Estado Actual
 
-- Acceso remoto al NAS desde cualquier red sin exposición de puertos al exterior
-- Latencia de acceso por Tailscale inferior a 2 segundos
-- Sistema de backup automático 3-2-1 operativo
-- Sin accesos no autorizados exitosos desde la puesta en marcha
+- Sistema operativo Synology DSM operativo sobre hardware reciclado
+- Tailscale configurado y funcional para acceso remoto
+- Synology Drive sincronizando archivos en 2 equipos
+- Synology Photos realizando copias de seguridad de 3 móviles
+- Almacenamiento actual: 1 SSD de 128 GB (ampliable)
+- Configuración de seguridad: acceso mediante usuario y contraseña
 
 ---
 
-## Conocimientos Adquiridos
+## Próximos Pasos
 
-- Administración de sistemas Linux y Synology DSM
-- Configuración de redes locales y VPN basada en WireGuard
-- Políticas de seguridad y bastionado de servidores
-- Gestión de almacenamiento, usuarios y permisos en entorno NAS
-- Diseño básico de arquitecturas de red doméstica
+- Ampliar el almacenamiento con un segundo disco
+- Implementar medidas de bastionado (desactivar usuario admin por defecto, activar 2FA, configurar reglas de firewall)
+- Configurar copias de seguridad externas cifradas (política 3-2-1)
 
 ---
 
@@ -122,4 +90,4 @@ GitHub: [github.com/MHR15](https://github.com/MHR15)
 
 ---
 
-*Proyecto en desarrollo continuo. Próximamente: monitorización con análisis automatizado de logs de acceso.*
+*Proyecto en desarrollo continuo.*
