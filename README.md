@@ -83,7 +83,6 @@ Este proyecto utiliza Synology DSM mediante ARC Loader sobre hardware no oficial
 github
 
 ---
-## Evidencia
 
 ## Evidencias
 
