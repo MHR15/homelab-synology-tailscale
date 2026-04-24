@@ -77,9 +77,8 @@ Desde fuera de la red local, el acceso se realiza a través de la IP privada asi
 
 ## Próximos Pasos
 
-- Ampliar el almacenamiento con un segundo disco
-- Implementar medidas de bastionado (desactivar usuario admin por defecto, activar 2FA, configurar reglas de firewall)
-- Configurar copias de seguridad externas cifradas (política 3-2-1)
+- Ampliar el almacenamiento con un segundo disco cuando se llene el SSD de 128 GB
+- Implementar medidas de bastionado: desactivar usuario admin por defecto, activar 2FA y configurar reglas de firewall
 
 ---
 
