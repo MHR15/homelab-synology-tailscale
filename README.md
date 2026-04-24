@@ -80,7 +80,6 @@ Desde fuera de la red local, el acceso se realiza a través de la IP privada asi
 ## Consideraciones
 
 Este proyecto utiliza Synology DSM mediante ARC Loader sobre hardware no oficial, lo que significa que no está soportado por Synology y no se recomienda para entornos de producción ni uso comercial. Su objetivo es exclusivamente educativo y de laboratorio doméstico.
-github
 
 ---
 
@@ -89,7 +88,8 @@ github
 | Inicio de sesión Synology DSM | Escritorio y Servicios |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/63a426c3-78bd-42f9-8d5e-e1d2bb5fd89c" width="100%" /> | <img src="https://github.com/user-attachments/assets/7f1495c1-ae27-4d98-bcf7-593696e01476" width="100%" /> |
-    
+
+---
 ## Próximos Pasos
 
 - Ampliar el almacenamiento con un segundo disco cuando se llene el SSD de 128 GB
