@@ -71,14 +71,13 @@ Desde fuera de la red local, el acceso se realiza a través de la IP privada asi
 - Synology Drive sincronizando archivos en 2 equipos
 - Synology Photos realizando copias de seguridad de 3 móviles
 - Almacenamiento actual: 1 SSD de 128 GB (ampliable)
-- Configuración de seguridad: acceso mediante usuario y contraseña
+- Bastionado implementado: usuario admin desactivado, 2FA activado y firewall configurado
 
 ---
 
 ## Próximos Pasos
 
 - Ampliar el almacenamiento con un segundo disco cuando se llene el SSD de 128 GB
-- Implementar medidas de bastionado: desactivar usuario admin por defecto, activar 2FA y configurar reglas de firewall
 
 ---
 
