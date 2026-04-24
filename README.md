@@ -62,7 +62,7 @@ Almacenamiento centralizado y copia de seguridad automática de las fotografías
 Tailscale está instalado directamente en el NAS desde el Centro de Paquetes de Synology DSM. Permite acceder al servidor desde cualquier red externa de forma segura, sin necesidad de abrir puertos en el router ni exponer la IP pública.
 
 Desde fuera de la red local, el acceso se realiza a través de la IP privada asignada por Tailscale al NAS.
-<img width="839" height="797" alt="image" src="https://github.com/user-attachments/assets/63a426c3-78bd-42f9-8d5e-e1d2bb5fd89c" />
+<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/63a426c3-78bd-42f9-8d5e-e1d2bb5fd89c" />
 
 
 ---
