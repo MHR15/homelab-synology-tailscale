@@ -14,7 +14,8 @@ El objetivo es disponer de un almacenamiento centralizado y privado accesible de
 
 ## Hardware
 
-- PC reciclado (modelo por determinar)
+- Intel(R) Celeron(R) N3050 @ conservative (2 núcleos)
+- 4096MB de memoria RAM
 - 1 disco SSD de 128 GB (ampliable)
 
 ---
@@ -83,9 +84,7 @@ Desde fuera de la red local, el acceso se realiza a través de la IP privada asi
 
 ## Autor
 
-**Miguel Hidalgo** — Estudiante de SMR | Futuro ASIR  
+**Miguel Hidalgo**  
 GitHub: [github.com/MHR15](https://github.com/MHR15)
 
 ---
-
-*Proyecto en desarrollo continuo.*
