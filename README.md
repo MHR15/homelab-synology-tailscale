@@ -75,9 +75,10 @@ Desde fuera de la red local, el acceso se realiza a través de la IP privada asi
 - Bastionado implementado: usuario admin desactivado, 2FA activado y firewall configurado
 
 ---
+## Consideraciones
+
 Este proyecto utiliza Synology DSM mediante ARC Loader sobre hardware no oficial, lo que significa que no está soportado por Synology y no se recomienda para entornos de producción ni uso comercial. Su objetivo es exclusivamente educativo y de laboratorio doméstico.
 github
-+1
 
 ---
 
