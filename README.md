@@ -84,9 +84,10 @@ github
 
 ---
 ## Evidencia
-
+<p align="center">
 <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/7f1495c1-ae27-4d98-bcf7-593696e01476" /> <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/63a426c3-78bd-42f9-8d5e-e1d2bb5fd89c" />
-
+<p/>
+    
 ## Próximos Pasos
 
 - Ampliar el almacenamiento con un segundo disco cuando se llene el SSD de 128 GB
